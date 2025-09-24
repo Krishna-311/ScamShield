@@ -31,9 +31,39 @@ const Dashboard = ({ scamReports }) => {
 
   return (
     <section className="page-section">
+      <style>{`
+        @media (max-width: 768px) {
+          .charts-container {
+            display: flex;
+            flex-direction: column !important; /* stack charts vertically on mobile */
+            gap: 1.25rem;
+          }
+
+          .charts-container h3 {
+            font-size: 1.1rem !important;
+            text-align: center;
+          }
+
+          .container.card {
+            padding: 1rem !important;
+            margin: 1rem;
+          }
+
+          .page-section h2 {
+            font-size: 1.25rem !important;
+            text-align: center;
+          }
+
+          /* Make chart heights smaller on mobile */
+          .charts-container > div > div {
+            height: 15rem !important;
+          }
+        }
+      `}</style>
+
       <div className="container card">
         <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#1f2937', marginBottom: '1.5rem' }}>Analytics Dashboard</h2>
-        <div className="charts-container">
+        <div className="charts-container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
           <div>
             <h3 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '1rem' }}>Reported Entities vs. Count</h3>
             <div style={{ height: '20rem', width: '100%' }}>

@@ -283,7 +283,71 @@ export default function App() {
           padding: 1.5rem;
           text-align: center;
         }
-        /* NOTE: You should eventually remove all of the old .floating-chatbot and .chat-* styles */
+        /* Put this inside your <style> block after existing styles */
+
+/* MOBILE ONLY STYLES */
+@media (max-width: 768px) {
+  nav.container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  nav.container > div:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+
+  .nav-link {
+    flex: 1 1 auto;
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+
+  .page-section {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr !important; /* force single column */
+    gap: 1rem;
+  }
+
+  .stat-value {
+    font-size: 1.25rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+  }
+
+  .button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .charts-container {
+    grid-template-columns: 1fr !important; /* charts stack vertically */
+  }
+}
+
         `}
       </style>
       <div className="main-container">

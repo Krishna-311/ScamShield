@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-// Simple ID generator - moved here to be self-contained
+// Simple ID generator
 const generateId = () => '_' + Math.random().toString(36).substr(2, 9);
 
 const Report = ({ setScamReports, userId }) => {
@@ -49,6 +49,38 @@ const Report = ({ setScamReports, userId }) => {
 
   return (
     <section className="page-section">
+      <style>{`
+        @media (max-width: 768px) {
+          .container.card {
+            padding: 1rem !important;
+            margin: 1rem;
+          }
+
+          .page-section h2 {
+            font-size: 1.25rem !important;
+            text-align: center;
+          }
+
+          .form-label {
+            font-size: 0.875rem !important;
+          }
+
+          .form-input, .form-select, .form-textarea {
+            font-size: 0.875rem !important;
+          }
+
+          button.button-primary {
+            width: 100% !important;
+            padding: 0.75rem !important;
+          }
+
+          div[style*="marginTop: '1rem'"][style*="textAlign: 'center'"] {
+            font-size: 0.85rem !important;
+            padding: 0.5rem !important;
+          }
+        }
+      `}</style>
+
       <div className="container card">
         <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#1f2937', marginBottom: '1.5rem' }}>Report a UPI Fraud</h2>
         <form onSubmit={handleSubmit}>

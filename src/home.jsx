@@ -1,8 +1,49 @@
 import React from 'react';
 
-const home = ({ navigate, totalReports, scamTypeCount, activeUsers }) => {
+const Home = ({ navigate, totalReports, scamTypeCount, activeUsers }) => {
   return (
     <section className="page-section">
+      <style>{`
+        @media (max-width: 768px) {
+          .container.card {
+            padding: 1rem !important;
+            margin: 1rem;
+          }
+
+          .card-title {
+            font-size: 1.5rem !important;
+            text-align: center;
+          }
+
+          .card-subtitle {
+            font-size: 0.875rem !important;
+            text-align: center;
+          }
+
+          .stats-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1rem;
+          }
+
+          .stat-value {
+            font-size: 1.25rem !important;
+          }
+
+          .stat-label {
+            font-size: 0.8rem !important;
+          }
+
+          .button {
+            width: 100% !important;
+            padding: 0.75rem !important;
+          }
+
+          div[style*="flex-direction: column"][style*="align-items: center"] {
+            gap: 0.75rem !important;
+          }
+        }
+      `}</style>
+
       <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
         <div className="card">
           <h1 className="card-title">Crowdsourced Scam Intelligence Platform</h1>
@@ -43,4 +84,4 @@ const home = ({ navigate, totalReports, scamTypeCount, activeUsers }) => {
   );
 };
 
-export default home;
+export default Home;

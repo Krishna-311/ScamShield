@@ -36,7 +36,7 @@ const Search = ({ scamReports }) => {
           scamTypes: Array.from(item.scamTypes).join(', '),
           riskLevel: item.reportsCount > 5 ? 'High' : (item.reportsCount > 1 ? 'Moderate' : 'Low'),
         }));
-        
+
         setResults(processedResults);
       } catch (e) {
         console.error("Error fetching documents: ", e);
@@ -58,6 +58,39 @@ const Search = ({ scamReports }) => {
 
   return (
     <section className="page-section">
+      <style>{`
+        @media (max-width: 768px) {
+          .container.card {
+            padding: 1rem !important;
+            margin: 1rem;
+          }
+
+          .page-section h2 {
+            font-size: 1.25rem !important;
+            text-align: center;
+          }
+
+          input.form-input, select.form-select, button.button-primary {
+            width: 100% !important;
+            font-size: 0.875rem !important;
+          }
+
+          form div[style*="flex-direction: column"] {
+            gap: 0.75rem !important;
+          }
+
+          .search-result-item {
+            flex-direction: column !important;
+            gap: 0.5rem !important;
+            font-size: 0.875rem !important;
+          }
+
+          .search-result-item div {
+            flex-wrap: wrap !important;
+          }
+        }
+      `}</style>
+
       <div className="container card">
         <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#1f2937', marginBottom: '1.5rem' }}>Search & Lookup</h2>
         <form onSubmit={handleSearch} style={{ marginBottom: '2rem' }}>
@@ -78,10 +111,10 @@ const Search = ({ scamReports }) => {
             </button>
           </div>
         </form>
-        
+
         {loading && <div style={{ textAlign: 'center', color: '#4b5563' }}>Searching...</div>}
         {searchError && <div style={{ textAlign: 'center', color: '#ef4444' }}>{searchError}</div>}
-        
+
         {results.length > 0 ? (
           <ul className="search-results-list">
             {results.map((result, index) => (
@@ -94,7 +127,7 @@ const Search = ({ scamReports }) => {
                 <p style={{ color: '#1f2937', wordBreak: 'break-word' }}><span style={{ fontWeight: '600' }}>Entity:</span> {result.entityValue}</p>
                 <p style={{ color: '#1f2937' }}><span style={{ fontWeight: '600' }}>Type:</span> {result.scamTypes}</p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.5rem' }}>
-                    <span style={{ color: '#10b981', fontWeight: '600' }}>✅ Verified Scam</span>
+                  <span style={{ color: '#10b981', fontWeight: '600' }}>✅ Verified Scam</span>
                 </div>
               </li>
             ))}
